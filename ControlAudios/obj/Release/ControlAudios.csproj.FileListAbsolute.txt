@@ -1,0 +1,16 @@
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\ControlAudios.exe.config
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\ControlAudios.exe
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\ControlAudios.pdb
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\websocket-sharp.dll
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\websocket-sharp.xml
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.csproj.AssemblyReference.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.csproj.SuggestedBindingRedirects.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.Form1.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.Form2.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.Properties.Resources.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.csproj.GenerateResource.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.csproj.CoreCompileInputs.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.csproj.CopyComplete
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.exe
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Release\ControlAudios.pdb
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Release\Gma.System.MouseKeyHook.dll

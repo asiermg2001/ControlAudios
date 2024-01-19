@@ -1,0 +1,15 @@
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\ControlAudios.exe.config
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\ControlAudios.exe
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\ControlAudios.pdb
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.AssemblyReference.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.SuggestedBindingRedirects.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.Form1.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.Properties.Resources.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.GenerateResource.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.CoreCompileInputs.cache
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.exe
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.pdb
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.Form2.resources
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\websocket-sharp.dll
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\websocket-sharp.xml
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.CopyComplete
