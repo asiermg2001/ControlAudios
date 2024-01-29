@@ -24,6 +24,10 @@ namespace ControlAudios
         public DialogResult parando;
         public bool choosingStartKeybind;
         public bool choosingStopKeybind;
+        public bool audioUpKeybind;
+        public bool audioDownKeybind;
+        public bool audioGoodKeybind;
+        public bool audioBadKeybind;
         public Keys empezar;
         public Keys parar;
         public string Test;
@@ -45,6 +49,13 @@ namespace ControlAudios
             }
             Suscribe();
             this.CenterToScreen();
+            button8.Text = Program.audioBad.ToString();
+            button7.Text = Program.audioGood.ToString();
+            button6.Text = Program.audioDown.ToString();
+            button5.Text = Program.audioUp.ToString();
+            button4.Text = Program.stopRecording.ToString();
+            button3.Text = Program.startRecording.ToString();
+            HideAllBoxes();
         }
         public void Suscribe()
         {
@@ -113,8 +124,8 @@ namespace ControlAudios
         {
             if (choosingStartKeybind)
             {
-                empezar = e.KeyCode;
-                button3.Text = empezar.ToString();
+                Program.startRecording = e.KeyCode;
+                button3.Text = Program.startRecording.ToString();
                 choosingStartKeybind = false;
                 timer1.Stop();
                 progressBar1.Visible = false;
@@ -123,23 +134,64 @@ namespace ControlAudios
             }
             if (choosingStopKeybind)
             {
-                parar = e.KeyCode;
-                button4.Text = parar.ToString();
+                Program.stopRecording = e.KeyCode;
+                button4.Text = Program.stopRecording.ToString();
                 choosingStopKeybind = false;
                 timer1.Stop();
                 progressBar1.Visible = false;
                 e.SuppressKeyPress = true;
                 return;
             }
-            if (e.KeyCode == parar)
+            if (audioGoodKeybind)
             {
-                Thread.Sleep(2000);
+                Program.audioGood = e.KeyCode;
+                button7.Text = Program.audioGood.ToString();
+                audioGoodKeybind = false;
+                timer1.Stop();
+                progressBar1.Visible = false;
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (audioBadKeybind)
+            {
+                Program.audioBad = e.KeyCode;
+                button8.Text = Program.audioBad.ToString();
+                audioBadKeybind = false;
+                timer1.Stop();
+                progressBar1.Visible = false;
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (audioDownKeybind)
+            {
+                Program.audioDown = e.KeyCode;
+                button6.Text = Program.audioDown.ToString();
+                audioDownKeybind = false;
+                timer1.Stop();
+                progressBar1.Visible = false;
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (audioUpKeybind)
+            {
+                Program.audioUp = e.KeyCode;
+                button5.Text = Program.audioUp.ToString();
+                audioUpKeybind = false;
+                timer1.Stop();
+                progressBar1.Visible = false;
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (e.KeyCode == Program.stopRecording)
+            {
+                Thread.Sleep(4000);
                 label2.Text = "OBS está: esperando";
                 if (recording)
                 {
                     if (Program.isOpen == false)
                     {
                         Form form2 = new Form2();
+                        form2.Location = this.Location;
                         form2.Show();
                         Program.isOpen = true;
                         progressBar1.Visible = false;
@@ -149,12 +201,8 @@ namespace ControlAudios
                     recording = false;
                 }
             }
-            if (e.KeyCode == empezar)
+            if (e.KeyCode == Program.startRecording)
             {
-                if (!Program.folderSelected) 
-                {
-                    MessageBox.Show("Detén la grabacion, no se ha elegido una de las carpetas pero OBS esta grabando");
-                }
                 Properties.Settings.Default.path = folderBrowserDialog1.SelectedPath;
                 Properties.Settings.Default.Save();
                 recording = true;
@@ -214,7 +262,6 @@ namespace ControlAudios
             if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
             {
                 Program.fbxPath = folderBrowserDialog2.SelectedPath;
-                button2.Text = folderBrowserDialog2.SelectedPath;
                 fileSystemWatcher2.Path = folderBrowserDialog2.SelectedPath;
                 Program.bothFoldersSelected = true;
             }
@@ -232,6 +279,138 @@ namespace ControlAudios
             progressBar1.Visible = true;
             choosingStopKeybind = true;
             timer1.Start();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            progressBar1.Visible = true;
+            audioGoodKeybind = true;
+            timer1.Start();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            progressBar1.Visible = true;
+            audioBadKeybind = true;
+            timer1.Start();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            progressBar1.Visible = true;
+            audioDownKeybind = true;
+            timer1.Start();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            progressBar1.Visible = true;
+            audioUpKeybind = true;
+            timer1.Start();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog3.ShowDialog() == DialogResult.OK)
+            {
+                Program.RootFolderPath = folderBrowserDialog3.SelectedPath;
+                string date = DateTime.Now.ToString("yyyy_MM_dd"); // Format the date as a string
+                string folderPath = Path.Combine(Program.RootFolderPath, date); // Combine the root folder path with the date
+                Program.TodaysFolder = folderPath;
+                button1.Text = Program.TodaysFolder;
+                Directory.CreateDirectory(folderPath);
+                // Array of subfolder names
+                string[] subfolders = { "MIE", "EUF", "TRI", "NEU" };
+
+                foreach (string subfolder in subfolders)
+                {
+                    string subfolderPath = Path.Combine(folderPath, subfolder);
+                    Directory.CreateDirectory(subfolderPath); // Create the subfolder
+
+                    // Create the "FBX" and "Videos" subfolders inside each subfolder
+                    Directory.CreateDirectory(Path.Combine(subfolderPath, "FBX"));
+                    Directory.CreateDirectory(Path.Combine(subfolderPath, "Videos"));
+                }
+                ShowAllBoxes();
+            }
+        }
+        public void HideAllBoxes()
+        {
+            TRIbox.Visible = false;
+            NEUbox.Visible = false;
+            EUFbox.Visible = false;
+            MIEbox.Visible = false;
+        }
+        public void ShowAllBoxes()
+        {
+            TRIbox.Visible = true;
+            NEUbox.Visible = true;
+            EUFbox.Visible = true;
+            MIEbox.Visible = true;
+
+        }
+        public void AllBoxesToFalse()
+        {
+            TRIbox.Checked = false;
+            NEUbox.Checked = false;
+            EUFbox.Checked = false;
+            MIEbox.Checked = false;
+        }
+
+        private void MIEbox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TRIbox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void NEUbox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void EUFbox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MIEbox_Click(object sender, EventArgs e)
+        {
+            AllBoxesToFalse();
+            MIEbox.Checked = true;
+            Program.SelectedEmotion = "MIE";
+            fileSystemWatcher1.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/FBX";
+            fileSystemWatcher2.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/Videos";
+        }
+
+        private void TRIbox_Click(object sender, EventArgs e)
+        {
+            AllBoxesToFalse();
+            TRIbox.Checked = true;
+            Program.SelectedEmotion = "TRI";
+            fileSystemWatcher1.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/FBX";
+            fileSystemWatcher2.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/Videos";
+        }
+
+        private void NEUbox_Click(object sender, EventArgs e)
+        {
+            AllBoxesToFalse();
+            NEUbox.Checked = true;
+            Program.SelectedEmotion = "NEU";
+            fileSystemWatcher1.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/FBX";
+            fileSystemWatcher2.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/Videos";
+        }
+
+        private void EUFbox_Click(object sender, EventArgs e)
+        {
+            AllBoxesToFalse();
+            EUFbox.Checked = true;
+            Program.SelectedEmotion = "EUF";
+            fileSystemWatcher1.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/FBX";
+            fileSystemWatcher2.Path = Program.TodaysFolder + "/" + Program.SelectedEmotion + "/Videos";
         }
     }
 }

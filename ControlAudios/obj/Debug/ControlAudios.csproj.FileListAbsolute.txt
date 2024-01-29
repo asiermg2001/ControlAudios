@@ -13,3 +13,4 @@ C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.F
 C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\websocket-sharp.dll
 C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\websocket-sharp.xml
 C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\obj\Debug\ControlAudios.csproj.CopyComplete
+C:\Users\Baleuko\Documents\ControlAudios\ControlAudios\bin\Debug\Gma.System.MouseKeyHook.dll

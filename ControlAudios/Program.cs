@@ -21,6 +21,15 @@ namespace ControlAudios
         public static FileInfo previousFile;
         public static bool folderSelected;
         public static bool bothFoldersSelected;
+        public static Keys audioGood = Keys.Up;
+        public static Keys audioBad = Keys.Down;
+        public static Keys audioUp = Keys.Right;
+        public static Keys audioDown = Keys.Left;
+        public static Keys startRecording = Keys.Oemplus;
+        public static Keys stopRecording = Keys.OemQuestion;
+        public static string RootFolderPath;
+        public static string SelectedEmotion;
+        public static string TodaysFolder;
         [STAThread]
         static void Main()
         {
