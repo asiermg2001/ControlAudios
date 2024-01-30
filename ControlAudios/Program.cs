@@ -25,8 +25,8 @@ namespace ControlAudios
         public static Keys audioBad = Keys.Down;
         public static Keys audioUp = Keys.Right;
         public static Keys audioDown = Keys.Left;
-        public static Keys startRecording = Keys.Oemplus;
-        public static Keys stopRecording = Keys.OemQuestion;
+        public static Keys startRecording = Keys.D1;
+        public static Keys stopRecording = Keys.D2;
         public static string RootFolderPath;
         public static string SelectedEmotion;
         public static string TodaysFolder;
